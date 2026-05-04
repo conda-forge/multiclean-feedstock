@@ -1,5 +1,5 @@
 {% set name = "multiclean" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/multiclean-{{ version }}.tar.gz
-  sha256: 0a65bd6aa4b07fd01ffb7ee3e287d57ae415ac5724e74d7ee2ff968edba333e2
+  sha256: 1265a70845539e8cdf00dafa651ab33ed525a09ff9a4fefde3859816c09bcb04
 
 build:
   noarch: python
