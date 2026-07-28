@@ -1,5 +1,5 @@
 {% set name = "multiclean" %}
-{% set version = "0.3.1" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/multiclean-{{ version }}.tar.gz
-  sha256: 31d18b1aee2821006d8d3318e20aa174cd406fcca2b9f8278cc3a739f6c65108
+  sha256: a06ec745fc92d9421587e278643a7d9f52681ff363e1b567cd246768e021197f
 
 build:
   noarch: python
@@ -17,18 +17,22 @@ build:
 requirements:
   host:
     - python {{ python_min }}
-    - setuptools >=61.0
+    - setuptools >=68
+    - setuptools-scm >=8
     - pip
   run:
     - python >={{ python_min }}
-    - opencv >=4.0
-    - scipy >=1.0
+    - py-opencv >=4.10
+    - numpy >=1.21
 
 test:
   imports:
     - multiclean
   commands:
     - pip check
+    # Guards against setuptools-scm being absent from `host:`, which makes the
+    # build silently produce version 0.0.0 rather than failing.
+    - python -c "import multiclean; assert multiclean.__version__ == '{{ version }}', multiclean.__version__"
   requires:
     - pip
     - python {{ python_min }}
