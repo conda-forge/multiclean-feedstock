@@ -1,13 +1,13 @@
 {% set name = "multiclean" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/multiclean-{{ version }}.tar.gz
-  sha256: a06ec745fc92d9421587e278643a7d9f52681ff363e1b567cd246768e021197f
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/multiclean-{{ version }}.tar.gz
+  sha256: 64f88200e28cd257da721256ea5b8a99f66fd7d42c20d5a04ae5b7ae80416b57
 
 build:
   noarch: python
